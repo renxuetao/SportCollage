@@ -1,0 +1,615 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta property="qc:admins" content="15317273575564615446375"/>
+    <meta property="og:image" content="http://static.segmentfault.com/v-56b0351f/global/img/touch-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"/>
+    <meta name="apple-itunes-app" content="app-id=958101793, app-argument=">
+    <title>SegmentFault</title>
+    <meta name="description" content="专注运动方面的社区平台，提供运动装备资讯，活动资讯，等服务。"/>
+    <meta name="keywords" content="SportCollage 讨论 鉴赏 分享"/>
+
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="SportCollage"/>
+
+    <link rel="shortcut icon" href="http://static.segmentfault.com/v-56b0351f/global/img/favicon.ico"/>
+    <link rel="apple-touch-icon" href="http://static.segmentfault.com/v-56b0351f/global/img/touch-icon.png">
+    <meta name="msapplication-TileColor" content="#009a61"/>
+    <meta name="msapplication-square150x150logo" content="http://static.segmentfault.com/v-56b0351f/global/img/touch-icon.png"/>
+    <meta name="userId" value="" id="SFUserId"/>
+    <meta name="userRank" value="" id="SFUserRank"/>
+
+    <!--<link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="/feeds/questions">-->
+    <!--<link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="/feeds/blogs">-->
+    <!--<link rel="alternate" type="application/atom+xml" title="订阅 SegmentFault 当前页" href="/feeds">-->
+    <link rel="stylesheet" href="http://static.segmentfault.com/v-56b0351f/global/css/global.css"/>
+    <!--<link rel="stylesheet" href="http://static.segmentfault.com/v-56b0351f/qa/css/qa_all.css"/>-->
+    <!--<link rel="stylesheet" href="http://static.segmentfault.com/v-56b0351f/global/css/responsive.css"/>-->
+
+    <!--[if lt IE 9]>-->
+    <link rel="stylesheet" href="http://static.segmentfault.com/v-56b0351f/global/css/ie.css"/>
+    <!--<script src="http://static.segmentfault.com/v-56b0351f/global/js/html5shiv.js"></script>-->
+    <!--<script src="http://static.segmentfault.com/v-56b0351f/global/js/respond.js"></script>
+    <![endif]&ndash;&gt;-->
+    <!--<script src="http://static.segmentfault.com/v-56b0351f/global/js/debug.js"></script>-->
+</head>
+
+<!--[if lt IE 9]>
+<body class="qa-index">
+<div class="alert alert-danger topframe" role="alert">你的浏览器实在
+    <strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说
+    <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a>
+</div>
+<![endif]-->
+
+<div class="global-nav">
+    <nav class="container nav">
+        <div class="dropdown m-menu">
+            <a href="javascript:void(0);" id="dLabel" class="visible-xs-block m-toptools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-align-justify"></span><span class="mobile-menu__unreadpoint"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li class="mobile-menu__item"><a href="/news/newest">资讯</a></li>
+                <li class="mobile-menu__item"><a href="/comment">点评</a></li>
+                <li class="mobile-menu__item"><a href="/events">活动</a></li>
+            </ul>
+        </div>
+        <h1 class="logo">
+            <a class="sc" href="/">
+                <font style='font-size: 25px;font-weight: bold;color: #333333;font-family: Cursive;'>Sport</font><font style='font-size: 25px;font-weight: bold;font-family: Cursive;'>Collage</font>
+            </a>
+        </h1>
+        <a href="/user/login" class="visible-xs-block pull-right m-ask m-toptools">
+            <span class="glyphicon glyphicon-log-in"></span>
+        </a>
+        <ul class="menu list-inline pull-left hidden-xs">
+            <li class="menu__item"><a href="/news">资讯</a></li>
+            <li class="menu__item"><a href="/comment">点评</a></li>
+            <li class="menu__item"><a href="/events">活动</a></li>
+        </ul>
+        <ul class="opts pull-right list-inline hidden-xs">
+            <li class="opts__item message has-unread">
+                <a target="_blank" href="/tour">
+                    <span class="sr-only">消息</span>
+                    <span id="messageCount" class="fa fa-hand-peace-o"></span>
+                </a>
+            </li>
+            <li class="opts__item">
+                <a href="/user/login" class="SFLogin em ml10" onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">注册 &middot; 登录</a>
+            </li>
+        </ul>
+        <form action="/search" class="header-search pull-right hidden-sm hidden-xs">
+            <button class="btn btn-link">
+                <span class="sr-only">搜索</span>
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <input id="searchBox" name="q" type="text" placeholder="输入关键字搜索" class="form-control" value=""/>
+        </form>
+    </nav>
+</div>
+<div class="global-navTags">
+    <div class="container">
+        <nav class=" nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="/" class="active"><i class="fa fa-home"></i>home</a></li>
+                <li class="nav__item"><a href="/timeline"><i class="fa fa-list-alt"></i>feed</a></li>
+                <li class="nav__item nav__item--split"><a><span class="split"></span></a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/javascript">背包</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/php">服装</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/python">鞋袜</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/java">登山杖</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/mysql">睡袋</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/ios">炊具</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/android">灯具</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/node.js">水具</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/html5">面料</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/linux">防潮垫</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/c%2B%2B">电子导航</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/css3">冰岩绳索</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/ruby">头具</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/golang">自行车</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/vim">智能穿戴</a></li>
+                <li class="nav__item tag-nav__item"><a href="/t/docker">综合装备</a></li>
+                <li class="nav__item nav__item--more" data-open="0">
+                    <a class="nav__item--more-link" href="/tags">
+                        <div class="tag__more">
+                            <i class="tag__more--icon"></i><i class="tag__more--icon"></i><i class="tag__more--icon"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="tag-mgr__box hide">
+                <input class="tag-mgr__query" type="text" placeholder="搜索关注的标签" data-tags='null'>
+                <ul class="tag-mgr__list mCustomScrollbar" data-mcs-theme="minimal-dark"></ul>
+                <a href="/tags" class="btn btn-primary btn-sm tag-mgr__btn">标签管理</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main">
+                <ul class="nav nav-tabs nav-tabs-zen mb10 mt30">
+                    <li class="active"><a href="/questions">装备讨论</a></li>
+                    <li><a href="/questions/hottest">装备鉴赏</a></li>
+                    <li><a href="/questions/unanswered" class="reddot">装备知识</a></li>
+                </ul>
+
+                <div class="stream-list question-stream">
+                    <section class="stream-list__item">
+                        <div class="qa-rank">
+                            <div class="votes hidden-xs">
+                                0
+                                <small>投票</small>
+                            </div>
+                            <div class="answers">
+                                0
+                                <small>回答</small>
+                            </div>
+                            <div class="views hidden-xs">
+                                10
+                                <small>浏览</small>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <ul class="author list-inline">
+                                <li>
+                                    <a href="/u/wojiaoleifeng">我叫雷锋</a>
+                                    <span class="split"></span>
+                                    <a href="/q/1010000004404953" class="askDate" data-created="1454399099">1 分钟前提问</a>
+                                </li>
+                            </ul>
+                            <h2 class="title">
+                                <a href="/q/1010000004404953">vue下router.go() 失效</a>
+                            </h2>
+                            <ul class="taglist--inline ib">
+                                <li class="tagPopup">
+                                    <a class="tag tag-sm" href="/t/vue.js" data-toggle="popover" data-original-title="vue.js" data-id="1040000004003243">vue.js</a>
+                                </li>
+                                <li class="tagPopup">
+                                    <a class="tag tag-sm" href="/t/vue-router" data-toggle="popover" data-original-title="vue-router" data-id="1040000004222332">vue-router</a>
+                                </li>
+                                <li class="tagPopup">
+                                    <a class="tag tag-sm" href="/t/javascript" data-toggle="popover" data-original-title="javascript" data-id="1040000000089436">javascript</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="stream-list__item">
+                        <div class="qa-rank">
+                            <div class="votes hidden-xs">
+                                0<small>投票</small>
+                            </div>
+                            <div class="answers answered">
+                                1<small>回答</small>
+                            </div>
+                            <div class="views hidden-xs">
+                                27<small>浏览</small>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <ul class="author list-inline">
+                                <li>
+                                    <a href="/u/youmingdot">有明</a>
+                                    <span class="split"></span>
+                                    <a href="/q/1010000004404462/a-1020000004404941">3 分钟前回答</a>
+                                </li>
+                            </ul>
+                            <h2 class="title"><a href="/q/1010000004404462">Typecho附件大于2M就上传失败？</a></h2>
+                            <ul class="taglist--inline ib">
+                                <li class="tagPopup">
+                                    <a class="tag tag-sm" href="/t/typecho" data-toggle="popover" data-original-title="typecho" data-id="1040000000089836">typecho</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <!-- /.stream-list -->
+
+                <!-- 引导栏-->
+                <!--<div class="text-center">-->
+                    <!--<ul class="pager">-->
+                        <!--<li>以上是部分更新，你还可以查看</li>-->
+                        <!--<li><a href="/questions">全部问题</a></li>-->
+                        <!--<li>或者</li>-->
+                        <!--<li><a href="/questions/hottest">热门问题</a></li>-->
+                        <!--<li>列表</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!-- 引导栏-->
+
+            </div>
+            <!-- /.main -->
+            <div class="col-xs-12 col-md-3 side mt30">
+
+                <!-- 暂时不支持快速登录-->
+                <!--<div class="side-ask alert alert-warning">-->
+                    <!--<p>-->
+                        <!--SegmentFault 是一个专注于解决编程问题，提高开发技能的社区。-->
+                    <!--</p>-->
+                    <!--<a href="/user/oauth/google" class="mt10 btn btn-sn-google btn-block">-->
+                        <!--<span class="icon-sn-bg-google"></span>-->
+                        <!--使用 Google 登录-->
+                    <!--</a>-->
+                    <!--<a href="/user/oauth/weibo" class="mt10 btn btn-sn-weibo btn-block">-->
+                        <!--<span class="icon-sn-bg-weibo"></span>-->
+                        <!--使用微博登录-->
+                    <!--</a>-->
+                    <!--<a href="/user/oauth/weixin" class="mt10 btn btn-sn-weixin btn-block">-->
+                        <!--<span class="icon-sn-bg-weixin"></span>-->
+                        <!--使用微信登录-->
+                    <!--</a>-->
+
+                    <!--<div class="mt10 side-system-notice">-->
+                        <!--<i class="fa fa-bullhorn pull-left"></i><a class="side-system-notice&#45;&#45;title"-->
+                                                                   <!--href="https://segmentfault.com/a/1190000004372485#notify">为什么你需要找一个程序员做男票？-->
+                        <!--—— Tairy</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!-- 下载移动客户端入口-->
+                <!--<div class="sfad-sidebar">-->
+                    <!--<div class="sfad-item" data-adn="ad-981183" id="adid-981183">-->
+                        <!--<button class="close" type="button" aria-hidden="true">&times;</button>-->
+                    <!--</div>-->
+
+                    <!--<div class="sfad-item" data-adn="ad-981184" id="adid-981184">-->
+                        <!--<button class="close" type="button" aria-hidden="true">&times;</button>-->
+                    <!--</div>-->
+
+                    <!--<div class="sfad-item" data-adn="ad-981694" id="adid-981694">-->
+                        <!--<button class="close" type="button" aria-hidden="true">&times;</button>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+                <!-- 下载移动客户端入口-->
+
+                <!--排行榜-->
+                <!--<div class="widget-box mt30">-->
+                    <!--<h2 class="widget-box__title">-->
+                        <!--排行榜-->
+                        <!--<span class="userstab text-muted pull-right">-->
+                            <!--<a href="javascript:void(0);" data-tab="Daily" class="active">今天</a>-->
+                            <!--&middot;-->
+                            <!--<a href="javascript:void(0);" data-tab="Weekly">本周</a>-->
+                            <!--&middot;-->
+                            <!--<a href="/users">更多</a>-->
+                        <!--</span>-->
+                    <!--</h2>-->
+                    <!--<ol id="usersDaily" class="widget-top10">-->
+                        <!--<li class="text-muted">-->
+                            <!--<img class="avatar-24"-->
+                                 <!--src="http://sfault-avatar.b0.upaiyun.com/450/136/450136037-56a8d5c0c3414_big64"/>-->
+                            <!--<a href="/u/akioss" class="ellipsis">-->
+                                <!--Akioss-->
+                            <!--</a>-->
+                            <!--<span class="text-muted pull-right">+81</span>-->
+                        <!--</li>-->
+                    <!--</ol>-->
+                    <!--<ol id="usersWeekly" class="widget-top10 hidden">-->
+                        <!--<li class="text-muted">-->
+                            <!--<img class="avatar-24" src="http://sfault-avatar.b0.upaiyun.com/338/811/3388112630-1030000000173306_big64" alt=""/>-->
+                            <!--<a href="/u/xuecan" class="ellipsis">xuecan</a>-->
+                            <!--<span class="text-muted pull-right">+244</span>-->
+                        <!--</li>-->
+                    <!--</ol>-->
+                <!--</div>-->
+                <!--排行榜-->
+
+                <div class="widget-box">
+                    <h2 class="h4 widget-box__title">最近热门</h2>
+                    <ul class="widget-links list-unstyled pl20">
+                        <li class="widget-links__item" style="color: #999; list-style: square;">
+                            <a href="/q/1010000004394880">移动端开发使用angularjs,react这样的框架合适吗？</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.side -->
+        </div>
+    </div>
+</div>
+
+<!--订阅本页RSS-->
+<!--<div class="container text-right mb20 hidden-xs">-->
+    <!--<a href="/feeds" class="feed-link">订阅本页 RSS</a>-->
+<!--</div>-->
+<!--订阅本页RSS-->
+
+<footer id="footer">
+    <div class="container">
+        <div class="row hidden-xs">
+            <dl class="col-sm-2 site-link">
+                <dt>网站相关</dt>
+                <dd><a href="/about">关于我们</a></dd>
+                <dd><a href="/tos">服务条款</a></dd>
+                <dd><a href="/faq">帮助中心</a></dd>
+                <dd><a href="//weekly.segmentfault.com/">每周精选</a></dd>
+                <dd><a href="/app">App 下载</a></dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>联系合作</dt>
+                <dd><a href="/contact">联系我们</a></dd>
+                <dd><a href="/hiring">加入我们</a></dd>
+                <dd><a href="/link">合作伙伴</a></dd>
+                <dd><a href="/press">媒体报道</a></dd>
+                <dd><a href="https://board.segmentfault.com/">建议反馈</a></dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>常用链接</dt>
+                <dd><a href="https://chrome.google.com/webstore/detail/segmentfault-%E7%AC%94%E8%AE%B0/pjklfdmleagfaekibdccmhlhellefcfo" target="_blank">笔记插件: Chrome</a></dd>
+                <dd><a href="https://addons.mozilla.org/zh-CN/firefox/addon/sf-note-ext/" target="_blank">笔记插件:Firefox</a></dd>
+                <dd><a href="//mirrors.segmentfault.com/" target="_blank">文档镜像</a></dd>
+                <dd><a href="/hackathon">黑客马拉松</a></dd>
+                <dd><a href="/giveaways" target="_blank">开发者福利</a></dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>关注我们</dt>
+                <dd><a href="https://github.com/SegmentFault" target="_blank">GitHub</a></dd>
+                <dd><a href="https://twitter.com/segment_fault" target="_blank">Twitter</a></dd>
+                <dd><a href="https://www.linkedin.com/company/segmentfault" target="_blank">LinkedIn</a></dd>
+                <dd><a href="http://weibo.com/segmentfault" target="_blank">新浪微博</a></dd>
+                <dd><a href="http://i.youku.com/segmentfault" target="_blank">优酷主页</a></dd>
+            </dl>
+            <!-- 内容许可-->
+            <!--<dl class="col-sm-4 site-link" id="license">-->
+                <!--<dt>内容许可</dt>-->
+                <!--<dd>除特别说明外，用户内容均采用 <a rel="license" target="_blank"-->
+                                      <!--href="http://creativecommons.org/licenses/by-sa/3.0/cn/">知识共享署名-相同方式共享 3.0-->
+                    <!--中国大陆许可协议</a> 进行许可-->
+                <!--</dd>-->
+                <!--<dd>本站由 <a target="_blank"-->
+                           <!--href="https://www.upyun.com/?utm_source=segmentfault&utm_medium=link&utm_campaign=upyun&md=segmentfault">又拍云</a>-->
+                    <!--提供 CDN 存储服务-->
+                <!--</dd>-->
+            <!--</dl>-->
+            <!-- 内容许可-->
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2011-2016 SegmentFault. 当前呈现版本 16.01.20<br>
+            <a href="http://www.miibeian.gov.cn/" rel="nofollow">浙ICP备15005796号-2</a>
+        </div>
+        <p class="text-center">
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="mobile" href="javascript:;">移动版</a>
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="desktop"
+               href="javascript:;">桌面版</a>
+        </p>
+    </div>
+</footer>
+
+<!--电脑版扫码下载App-->
+<div id="fixedTools" class="hidden-xs hidden-sm">
+    <!-- 返回顶部-->
+    <a id="backtop" class="hidden border-bottom" href="#">回顶部</a>
+    <!-- 返回顶部-->
+
+    <!-- 扫扫下载App-->
+    <!--<div class="qrcodeWraper">-->
+        <!--<a href="/app#qrcode"><span class="glyphicon glyphicon-qrcode"></span></a>-->
+        <!--<img id="qrcode" class="border" alt="sf-wechat" src="http://static.segmentfault.com/v-56b0351f/page/img/app/appQrcode.png">-->
+        <!--<p class="qrcode-text">扫扫下载 App</p>-->
+    <!--</div>-->
+    <!-- 扫扫下载App-->
+
+    <!-- 扫扫关注公众号-->
+    <div class="qrcodeWraper">
+        <a href="/app#qrcode"><span class="glyphicon glyphicon-qrcode"></span></a>
+        <img id="qrcode" class="border" alt="sf-wechat" src="http://static.segmentfault.com/v-56b0351f/page/img/app/appQrcode.png">
+        <p class="qrcode-text">扫扫关注 公众号</p>
+    </div>
+    <!-- 扫扫关注公众号-->
+
+</div>
+<!--电脑版扫码下载App-->
+
+<!--响应布局的扫码下载App-->
+<!--<div class="app-promotion-bar">-->
+    <!--<a href="javascript:;"><i class="fa fa-close close"></i></a>-->
+
+    <!--<div class="icon"></div>-->
+    <!--<h5 class="title h5">SportCollage</h5>-->
+
+    <!--<p class="describe">一起探索更多未知</p>-->
+    <!--&lt;!&ndash;<a class="download-btn btn btn-sm btn-primary" href="/app#qrcode">下载 App</a>&ndash;&gt;-->
+    <!--<a class="download-btn btn btn-sm btn-primary" href="/app#qrcode">下载 App</a>-->
+<!--</div>-->
+<!--响应布局的扫码下载App-->
+
+<!--登录部分代码-->
+<script id="loginModal" type="text/template">
+    <div class="row bg-white login-modal">
+        <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+            <h1 class="h4 text-muted login-title">用户登录</h1>
+
+            <form action="/api/user/login" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input type="email" class="form-control" name="mail" required placeholder="hello@segmentfault.com">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="密码">
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right pl20 pr20">登录</button>
+                </div>
+            </form>
+            <!--<p class="h4 text-muted visible-xs-block h4">快速登录</p>-->
+            <!--<div class="widget-login mt30">-->
+                <!--<p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>-->
+                <!--<a href="/user/oauth/google" class="btn btn-default btn-sm btn-sn-google"><span class="icon-sn-bg-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>-->
+                <!--<a href="/user/oauth/github" class="btn btn-default btn-sm btn-sn-github"><span class="icon-sn-bg-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>-->
+                <!--<a href="/user/oauth/weibo" class="btn btn-default btn-sm btn-sn-weibo"><span class="icon-sn-bg-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>-->
+                <!--<a href="/user/oauth/qq" class="btn btn-default btn-sm btn-sn-qq"><span class="icon-sn-bg-qq"></span><strong class="visible-xs-inline">QQ 账号</strong></a>-->
+                <!--<a href="/user/oauth/weixin" class="btn btn-default btn-sm btn-sn-weixin"><span class="icon-sn-bg-weixin"></span> <strong class="visible-xs-inline">微信账号</strong></a>-->
+                <!--<button id="loginShowMore" href="javascript:void(0);" class="btn mb5 btn-default btn-sm btn-sn-dotted"> <span class="icon-sn-bg-dotted"></span><strong class="visible-xs-inline">•••</strong></button>-->
+                <!--<a href="/user/oauth/twitter" class="btn btn-default btn-sn-twitter btn-sm hidden"><span class="icon-sn-bg-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>-->
+                <!--<a href="/user/oauth/facebook" class="btn btn-default btn-sn-facebook btn-sm hidden"><span class="icon-sn-bg-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>-->
+                <!--<a href="/user/oauth/douban" class="btn btn-default btn-sn-douban btn-sm hidden"><span class="icon-sn-bg-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>-->
+            <!--</div>-->
+        </div>
+        <div class="login-vline hidden-xs hidden-sm"></div>
+        <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+            <h1 class="h4 text-muted login-title">创建新账号</h1>
+
+            <form action="/api/user/register" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="name" class="control-label">用户名</label>
+                    <input type="text" class="form-control" name="name" required placeholder="字母、数字等，用户名唯一">
+                </div>
+                <div class="form-group">
+                    <label for="mail" class="control-label">Email</label>
+                    <input type="hidden" style="display:none" name="mail">
+                    <input type="email" autocomplete="off" class="form-control register-mail" name="mail" required
+                           placeholder="hello@segmentfault.com">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label class="required control-label">验证码</label>
+                    <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+
+                    <div class="mt10">
+                        <a id="loginReloadCaptcha" href="javascript:void(0)">
+                            <img data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary pl20 pr20 pull-right">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="text-center text-muted mt30">
+        <a href="/user/forgot" class="ml5">找回密码</a>
+    </div>
+</script>
+<!--登录部分代码-->
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "http://static.segmentfault.com/v-56b0351f"
+        };
+        w.SF.token = (function () {
+            var _5UEcu = //'S'
+                            'S' + '9'//'sDx'
+                            + '1'//'0fF'
+                            +//'k'
+                            'e' +//'nht'
+                            'nht' +//'gW5'
+                            '9b' + ''///*'l4'*/'l4'
+                            + 'e'//'g'
+                            + /* 'T'//'T' */'' + /* 'rjS'//'rjS' */'' + 'hMU'//'hMU'
+                            + 'b0'//'F'
+                            + /* 'a3'//'a3' */'' +//'AmP'
+                            'AmP' + '81'//'6ZI'
+                            + 'vn'//'vn'
+                            + '4'//'WF'
+                            + '619'//'H8N'
+                            +//'mQ'
+                            'f' + 'ec4'//'FHI'
+                            + '1'//'3'
+                            +//'Q'
+                            'a0' + 'd'//'H'
+                            + '20'//'ex'
+                            +//'C'
+                            'C' +//'F'
+                            '56' + '04'//'e'
+                            +//'zv'
+                            '1' + ''///*'Kc'*/'Kc'
+                            + 'b2'//'w'
+                            + /* 'AjV'//'AjV' */'' + 'E5'//'E5'
+                            + '8'//'F'
+                    , _epX = [[0, 1], [3, 6], [6, 9], [8, 11], [10, 12], [24, 25], [31, 33]];
+
+            for (var i = 0; i < _epX.length; i++) {
+                _5UEcu = _5UEcu.substring(0, _epX[i][0]) + _5UEcu.substring(_epX[i][1]);
+            }
+
+            return _5UEcu;
+        })();
+        ;
+    })(window);
+
+    var lock = {
+        type: "",
+        text: '',
+        table: {"ban_post": [1, "\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+</script>
+
+<script crossorigin src="http://static.segmentfault.com/v-56b0351f/3rd/assets.js"></script>
+<script crossorigin src="http://static.segmentfault.com/v-56b0351f/qa/js/index.js"></script>
+
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+
+    ga('create', 'UA-918487-8', 'auto', {'userID': 0, 'createdTime': 0, 'now': 1454399266});
+    ga('set', 'dimension1', 'guest');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script src="//cbjs.baidu.com/js/m.js"></script>
+<script>
+    if (typeof BAIDU_CLB_fillSlotAsync === 'function') {
+        BAIDU_CLB_fillSlotAsync('981183', 'adid-981183');
+        BAIDU_CLB_fillSlotAsync('981184', 'adid-981184');
+        BAIDU_CLB_fillSlotAsync('981694', 'adid-981694');
+        BAIDU_CLB_fillSlotAsync('981179', 'adid-981179');
+        BAIDU_CLB_fillSlotAsync('1119908', 'adid-1119908');
+    }
+</script>
+
+<!--<script>-->
+    <!--(function () {-->
+        <!--var sc = document.getElementsByClassName("sc");-->
+        <!--for (var i = 0; i < sc.length; i++) {-->
+            <!--sc[i].innerHtml = "<font style='font-size: 25px;font-weight: bold;color: #333333;font-family: Cursive;'>Sport</font><font style='font-size: 25px;font-weight: bold;font-family: Cursive;'>Collage</font>"-->
+        <!--}-->
+    <!--})();-->
+<!--</script>-->
+
+
+</body>
+</html>
