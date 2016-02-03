@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta name="renderer" content="webkit"/>
     <meta property="qc:admins" content="15317273575564615446375"/>
+
     <meta property="og:image" content="http://static.segmentfault.com/v-56b0351f/global/img/touch-icon.png"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"/>
     <meta name="apple-itunes-app" content="app-id=958101793, app-argument=">
-    <title>SegmentFault</title>
+
+    <title>SportCollage</title>
+
     <meta name="description" content="专注运动方面的社区平台，提供运动装备资讯，活动资讯，等服务。"/>
     <meta name="keywords" content="SportCollage 讨论 鉴赏 分享"/>
 
@@ -17,10 +21,14 @@
 
     <link rel="shortcut icon" href="http://static.segmentfault.com/v-56b0351f/global/img/favicon.ico"/>
     <link rel="apple-touch-icon" href="http://static.segmentfault.com/v-56b0351f/global/img/touch-icon.png">
+
     <meta name="msapplication-TileColor" content="#009a61"/>
     <meta name="msapplication-square150x150logo" content="http://static.segmentfault.com/v-56b0351f/global/img/touch-icon.png"/>
-    <meta name="userId" value="" id="SFUserId"/>
-    <meta name="userRank" value="" id="SFUserRank"/>
+    <meta name="userId" value="" id="SCUserId"/>
+    <meta name="userRank" value="" id="SCUserRank"/>
+
+    <!-- 修改标签栏图标 -->
+    <link rel="shortcut icon" href="http:/static/img/SportCollage.jpg">
 
     <!--<link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="/feeds/questions">-->
     <!--<link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="/feeds/blogs">-->
@@ -37,13 +45,13 @@
     <!--<script src="http://static.segmentfault.com/v-56b0351f/global/js/debug.js"></script>-->
 </head>
 
-<!--[if lt IE 9]>
-<body class="qa-index">
+<!--[if lt IE 9]>-->
+<!-- <body class="qa-index">
 <div class="alert alert-danger topframe" role="alert">你的浏览器实在
     <strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说
     <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a>
-</div>
-<![endif]-->
+</div> -->
+<!--[endif]-->
 
 <div class="global-nav">
     <nav class="container nav">
@@ -59,7 +67,7 @@
         </div>
         <h1 class="logo">
             <a class="sc" href="/">
-                <font style='font-size: 25px;font-weight: bold;color: #333333;font-family: Cursive;'>Sport</font><font style='font-size: 25px;font-weight: bold;font-family: Cursive;'>Collage</font>
+                <font style='font-size: 25px;font-weight: bold;color: #333333;font-family: Cursive;'>Sport</font><font style='font-size: 25px;font-weight: bold;color:#009a61;font-family: Cursive;'>Collage</font>
             </a>
         </h1>
         <a href="/user/login" class="visible-xs-block pull-right m-ask m-toptools">
@@ -77,9 +85,22 @@
                     <span id="messageCount" class="fa fa-hand-peace-o"></span>
                 </a>
             </li>
-            <li class="opts__item">
+            <!-- 登录部分按钮-->
+            <div class="pull-right">
+                {{if .Islogin}}
+                <li class="opts__item">
+                    <a href="/user/login?exit=true" class="SFLogin em ml10">退出登录</a>
+                </li>
+                {{else}}
+                <li class="opts__item">
+                    <a href="/user/login" class="SFLogin em ml10" onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">注册 &middot; 登录</a>
+                </li>
+                {{end}}
+            </div>
+            <!-- 登录部分按钮-->
+            <!-- <li class="opts__item">
                 <a href="/user/login" class="SFLogin em ml10" onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">注册 &middot; 登录</a>
-            </li>
+            </li> -->
         </ul>
         <form action="/search" class="header-search pull-right hidden-sm hidden-xs">
             <button class="btn btn-link">
@@ -600,16 +621,6 @@
         BAIDU_CLB_fillSlotAsync('1119908', 'adid-1119908');
     }
 </script>
-
-<!--<script>-->
-    <!--(function () {-->
-        <!--var sc = document.getElementsByClassName("sc");-->
-        <!--for (var i = 0; i < sc.length; i++) {-->
-            <!--sc[i].innerHtml = "<font style='font-size: 25px;font-weight: bold;color: #333333;font-family: Cursive;'>Sport</font><font style='font-size: 25px;font-weight: bold;font-family: Cursive;'>Collage</font>"-->
-        <!--}-->
-    <!--})();-->
-<!--</script>-->
-
 
 </body>
 </html>
