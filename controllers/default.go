@@ -13,9 +13,6 @@ func (c *MainController) Get() {
 	//	c.Data["Website"] = "beego.me"
 	//	c.Data["Email"] = "astaxie@gmail.com"
 	//	c.TplName = "index.tpl"
-
 	c.TplName = "home.html"
-	// c.Ctx.WriteString("Hello World")
 	models.QueryAritcleList()
-	beego.Debug("123")
 }

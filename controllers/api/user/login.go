@@ -16,5 +16,4 @@ func (this *LoginControllers) Get() {
 func (this *LoginControllers) Post() {
 	beego.Debug(fmt.Sprint(this.Input()))
 	this.TplName = "home.html"
-	return
 }
