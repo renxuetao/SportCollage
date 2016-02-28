@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*
+	*IE8
+	*http://www.bgbk.org
+*/
+
+/*----------------------------------------------------------
+	Header
+----------------------------------------------------------*/
+#header .logo a {
+	background-image: none;
+	text-indent: 0;
+	width: auto;
+}
+
+#header-menu li > a:after {
+	display: none;
+}
+
+/*----------------------------------------------------------
+	Post
+----------------------------------------------------------*/
+.related-posts > li .excerpt {
+	background: #000;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=66);
+}
+
+/*----------------------------------------------------------
+	Footer
+----------------------------------------------------------*/
+#footer-menu > li > a:after {
+	display: none;
+}
