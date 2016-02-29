@@ -114,10 +114,11 @@
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://localhost/wordpress/wp-includes/wlwmanifest.xml">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <link rel="icon" href="http://localhost/wordpress/wp-content/uploads/2016/02/cropped-SportCollage-1-32x32.png" sizes="32x32">
-    <link rel="icon" href="http://localhost/wordpress/wp-content/uploads/2016/02/cropped-SportCollage-1-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon-precomposed" href="http://localhost/wordpress/wp-content/uploads/2016/02/cropped-SportCollage-1-180x180.png">
-    <meta name="msapplication-TileImage" content="http://localhost/wordpress/wp-content/uploads/2016/02/cropped-SportCollage-1-270x270.png">
+    <link rel="shortcut icon" href="img/SportCollage-1-32x32.png">
+    <link rel="icon" href="img/SportCollage-1-32x32.png" sizes="32x32">
+    <link rel="icon" href="img/SportCollage-1-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="img/SportCollage-1-180x180.png">
+    <meta name="msapplication-TileImage" content="img/SportCollage-1-270x270.png">
 </head>
 <body class="home blog logged-in">
 <div id="wrapper">
@@ -172,6 +173,17 @@
                     </li>
                 </ul>
             </nav>
+            <ul class="header-regist-login">
+                <!--<li class="opts__item message has-unread">-->
+                    <!--<a target="_blank" href="/tour">-->
+                        <!--<span class="sr-only">消息</span>-->
+                        <!--<span id="messageCount" class="fa fa-hand-peace-o"></span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <li class="opts__item">
+                    <a href="/user/login" class="SClogin" onClick="">注册 &middot;登录</a>
+                </li>
+            </ul>
             <form method="get" class="search-form" action="http://localhost/wordpress">
                 <input class="search-text" name="s" autocomplete="off" placeholder="输入关键词搜索..." type="text" value="">
                 <button class="search-submit" alt="搜索" type="submit">搜索</button>
