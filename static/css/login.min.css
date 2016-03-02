@@ -30,8 +30,9 @@ input[type=text], input[type=search], input[type=radio], input[type=tel], input[
     transition: 50ms border-color ease-in-out
 }
 
+/*此处修改了，这里修改输入框获取焦点后内边框*/
 input[type=text]:focus, input[type=search]:focus, input[type=radio]:focus, input[type=tel]:focus, input[type=time]:focus, input[type=url]:focus, input[type=week]:focus, input[type=password]:focus, input[type=checkbox]:focus, input[type=color]:focus, input[type=date]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=email]:focus, input[type=month]:focus, input[type=number]:focus, select:focus, textarea:focus {
-    border-color: #5b9dd9;
+    border-color: #c1c1c1;
     -webkit-box-shadow: 0 0 2px rgba(30, 140, 190, .8);
     box-shadow: 0 0 2px rgba(30, 140, 190, .8)
 }
@@ -121,7 +122,7 @@ input[type=radio]:checked:before {
     height: 6px;
     margin: 4px;
     line-height: 16px;
-    background-color: #1e8cbe
+    background-color: #1e8cbe;
 }
 
 @-moz-document url-prefix() {
@@ -1267,7 +1268,7 @@ p {
 }
 
 .login #login_error, .login .message {
-    border-left: 4px solid #00a0d2;
+    border-left: 4px solid #8e8e8e;
     padding: 12px;
     margin-left: 0;
     background-color: #fff;
