@@ -6,119 +6,144 @@ import (
 	//_ "github.com/go-sql-driver/mysql"
 )
 
-type Article struct {
-	Id           int
-	Tltle        string
-	ArticleState int
-	BrowseNum    int64
-	PublishTime  string
-	ClassifyID   int
-	TabsID       int
-	LableID      int
-	UserID       int
-	VoteID       int
-	CommentID    int
+type Commentmeta struct {
+	Meta_id            int64
+	Commentmeta_key_id int64
+	Meta_key           string
+	Meta_value         string
 }
 
-type Classify struct {
-	Id           int
-	ClassifyName string
-	EnglishName  string
-	Postion      int64
-	Parent       int64
-	Brother      int64
-	Data1        string
-	Data2        string
-	Data3        string
-	Data4        string
-	Data5        string
+type Comments struct {
+	Comment_ID           int64
+	Comment_post_ID      int64
+	Comment_author       string
+	Comment_author_email string
+	Comment_author_url   string
+	Comment_author_IP    string
+	Comment_date         uint64
+	Comment_date_gmt     uint64
+	Comment_content      string
+	Comment_karma        int32
+	Comment_approved     string
+	Comment_agent        string
+	Comment_type         string
+	Comment_parent       int64
+	User_id              int64
 }
 
-type Label struct {
-	Id          int
-	LabelName   string
-	EnglishName string
-	Postion     int64
-	Parent      int64
-	Brother     int64
-	HotLevel    int64
+type Links struct {
+	Link_id          int64
+	Link_url         string
+	Link_name        string
+	Link_image       int64
+	Link_target      int64
+	Link_description int64
+	Link_visible     int64
+	Link_rating      int64
+	Link_updated     int64
+	Link_rel         int64
+	Link_notes       int64
+	Link_rss         int64
+	Link_visible     int64
+	Link_visible     int64
+	Link_visible     int64
+	Link_visible     int64
+	Link_visible     int64
+	Link_visible     int64
 }
 
-type Message struct {
-	Id          int
-	Content     string
-	Classify    string
-	Position    int64
-	parent      int64
-	Brother     int64
-	State       int
-	CommentTime string
-	UserID      int
-	ArticleID   int
-	Data1       string
-	Data2       string
-	Data3       string
-	Data4       string
-	Data5       string
+type Options struct {
+	Option_id    int64
+	Option_name  string
+	Option_value string
+	Autoload     string
 }
 
-type Tabs struct {
-	Id           int
-	ClassifyName string
-	EnglishName  string
-	Postion      int64
-	Parent       int64
-	Brother      int64
-	Data1        string
-	Data2        string
-	Data3        string
-	Data4        string
-	Data5        string
+type Postmeta struct {
+	Meta_id    int64
+	Post_id    int64
+	Meta_key   string
+	Meta_value string
 }
 
-type UserInfo struct {
-	Id       int
-	UserName string
-	NickName string
-	Email    string
-	Telphone int
-	Gender   int
-	Age      int
-	QQ       int
-	Wechat   string
-	Weibo    string
+type Posts struct {
+	ID                    int64
+	Post_author           int64
+	Post_date             uint64
+	Post_date_gmt         uint64
+	Post_content          string
+	Post_title            string
+	Post_excerpt          string
+	Post_status           string
+	Comment_status        string
+	Ping_status           string
+	Post_password         string
+	Post_name             string
+	To_ping               string
+	Pinged                string
+	Post_modified         uint64
+	Post_modified_gmt     uint64
+	Post_content_filtered string
+	Post_parent           int64
+	Guid                  string
+	Menu_order            int32
+	Post_type             string
+	Post_mime_type        string
+	Comment_count         int64
 }
 
-type User struct {
-	Id         int
-	UserName   string
-	NickName   string
-	Email      string
-	Session    string
-	LoginTime  string
-	LogoutTime string
-	ModifyTime string
+type Term_relationships struct {
+	Object_id        int64
+	Term_taxonomy_id int64
+	Term_order       int32
 }
 
-type Vote struct {
-	Id        int
-	Position  string
-	Parent    string
-	Brother   int64
-	VoteState int64
-	VoteTime  int64
-	UserID    string
-	ArticleID string
-	Data1     string
-	Data2     string
-	Data3     string
-	Data4     string
-	Data5     string
+type Term_taxonomy struct {
+	Term_taxonomy_id int64
+	Term_id          int64
+	Taxonomy         string
+	Description      string
+	Parent           int64
+	Count            int64
+}
+
+type Termmeta struct {
+	Meta_id    int64
+	Term_id    int64
+	Meta_key   string
+	Meta_value string
+}
+
+type Terms struct {
+	Term_id    int64
+	Name       string
+	Slug       string
+	Term_group int64
+}
+
+type Usermeta struct {
+	Umeta_id   int64
+	User_id    int64
+	Meta_key   string
+	Meta_value string
+}
+
+type Users struct {
+	ID                  int64
+	User_login          string
+	User_pass           string
+	User_nicename       string
+	User_email          string
+	User_url            string
+	User_registered     uint64
+	User_activation_key string
+	User_status         int32
+	Display_name        string
 }
 
 func init() {
 	// 需要在init中注册定义的model
-	orm.RegisterModel(new(Article), new(Classify), new(Label), new(Message), new(Tabs), new(UserInfo), new(User), new(Vote))
+	orm.RegisterModel(new(Commentmeta), new(Users), new(Usermeta), new(Terms), new(Termmeta), new(Term_taxonomy), new(Term_relationships), new(Posts), new(Postmeta), new(Options), new(Links), new(Comments))
 }
 
 func QueryAritcleList() {
