@@ -10,10 +10,10 @@ type LoginControllers struct {
 }
 
 func (this *LoginControllers) Get() {
-	this.TplName = "home.html"
+	this.TplName = "login_page.html"
 }
 
 func (this *LoginControllers) Post() {
 	beego.Debug(fmt.Sprint(this.Input()))
-	this.TplName = "home.html"
+	this.TplName = "login_page.html"
 }

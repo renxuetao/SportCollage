@@ -149,7 +149,7 @@ func init() {
 func QueryAritcleList() {
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	var Articles []*Article
-	num, err := o.QueryTable("article").All(&Articles)
+	var Commentmetas []*Commentmeta
+	num, err := o.QueryTable("Commentmeta").All(&Commentmetas)
 	fmt.Printf("Returned Rows Num: %s, %s", num, err)
 }
