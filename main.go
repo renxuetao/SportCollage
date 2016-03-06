@@ -38,5 +38,9 @@ func init() {
 }
 
 func main() {
+	// beego.SetStaticPath("/static", "public")
+	// beego.SetStaticPath("/img", "img")
+	// beego.SetStaticPath("/css", "css")
+	// beego.SetStaticPath("/js", "js")
 	beego.Run()
 }

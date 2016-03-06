@@ -7,14 +7,14 @@ import (
 )
 
 type Commentmeta struct {
-	Meta_id            int64
+	Meta_id            int64 `orm:"pk";auto`
 	Commentmeta_key_id int64
 	Meta_key           string
 	Meta_value         string
 }
 
 type Comments struct {
-	Comment_ID           int64
+	Comment_ID           int64 `orm:"pk";auto`
 	Comment_post_ID      int64
 	Comment_author       string
 	Comment_author_email string
@@ -32,7 +32,7 @@ type Comments struct {
 }
 
 type Links struct {
-	Link_id          int64
+	Link_id          int64 `orm:"pk";auto`
 	Link_url         string
 	Link_name        string
 	Link_image       int64
@@ -44,30 +44,24 @@ type Links struct {
 	Link_rel         int64
 	Link_notes       int64
 	Link_rss         int64
-	Link_visible     int64
-	Link_visible     int64
-	Link_visible     int64
-	Link_visible     int64
-	Link_visible     int64
-	Link_visible     int64
 }
 
 type Options struct {
-	Option_id    int64
+	Option_id    int64 `orm:"pk";auto`
 	Option_name  string
 	Option_value string
 	Autoload     string
 }
 
 type Postmeta struct {
-	Meta_id    int64
+	Meta_id    int64 `orm:"pk";auto`
 	Post_id    int64
 	Meta_key   string
 	Meta_value string
 }
 
 type Posts struct {
-	ID                    int64
+	ID                    int64 `orm:"pk";auto`
 	Post_author           int64
 	Post_date             uint64
 	Post_date_gmt         uint64
@@ -93,13 +87,13 @@ type Posts struct {
 }
 
 type Term_relationships struct {
-	Object_id        int64
+	Object_id        int64 `orm:"pk";auto`
 	Term_taxonomy_id int64
 	Term_order       int32
 }
 
 type Term_taxonomy struct {
-	Term_taxonomy_id int64
+	Term_taxonomy_id int64 `orm:"pk";auto`
 	Term_id          int64
 	Taxonomy         string
 	Description      string
@@ -108,28 +102,28 @@ type Term_taxonomy struct {
 }
 
 type Termmeta struct {
-	Meta_id    int64
+	Meta_id    int64 `orm:"pk";auto`
 	Term_id    int64
 	Meta_key   string
 	Meta_value string
 }
 
 type Terms struct {
-	Term_id    int64
+	Term_id    int64 `orm:"pk";auto`
 	Name       string
 	Slug       string
 	Term_group int64
 }
 
 type Usermeta struct {
-	Umeta_id   int64
+	Umeta_id   int64 `orm:"pk";auto`
 	User_id    int64
 	Meta_key   string
 	Meta_value string
 }
 
 type Users struct {
-	ID                  int64
+	ID                  int64 `orm:"pk";auto`
 	User_login          string
 	User_pass           string
 	User_nicename       string
