@@ -15,5 +15,4 @@ func (this *ForgetControllers) Get() {
 
 func (this *ForgetControllers) Post() {
 	beego.Debug(fmt.Sprint(this.Input()))
-	this.TplName = "forget_page.html"
 }

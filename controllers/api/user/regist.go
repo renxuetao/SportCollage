@@ -1,7 +1,6 @@
 package user
 
 import (
-	"fmt"
 	"github.com/astaxie/beego"
 )
 
@@ -14,6 +13,6 @@ func (this *RegistControllers) Get() {
 }
 
 func (this *RegistControllers) Post() {
-	beego.Debug(fmt.Sprint(this.Input()))
-	this.TplName = "regist_page.html"
+	// beego.Debug(fmt.Sprint(this.Input()))
+	this.TplName = "login_page.html"
 }

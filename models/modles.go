@@ -1,7 +1,7 @@
 package models
 
 import (
-	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	//_ "github.com/go-sql-driver/mysql"
 )
@@ -140,10 +140,42 @@ func init() {
 	orm.RegisterModel(new(Commentmeta), new(Users), new(Usermeta), new(Terms), new(Termmeta), new(Term_taxonomy), new(Term_relationships), new(Posts), new(Postmeta), new(Options), new(Links), new(Comments))
 }
 
-func QueryAritcleList() {
+// func QueryAritcleList() {
+// 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+// 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+// 	var Commentmetas []*Commentmeta
+// 	num, err := o.QueryTable("Commentmeta").All(&Commentmetas)
+// 	fmt.Printf("Returned Rows Num: %s, %s", num, err)
+// }
+
+// var (
+// 	sql string
+// 	err error
+// 	num int
+// )
+
+func QueryUserName(userName string) (int, error) {
+	var users []*Users
+	sql := "Select * from users where user_login = ?"
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	var Commentmetas []*Commentmeta
-	num, err := o.QueryTable("Commentmeta").All(&Commentmetas)
-	fmt.Printf("Returned Rows Num: %s, %s", num, err)
+	err := o.Raw(sql, userName).QueryRow(&users)
+	if err != nil {
+		beego.Error(err)
+		return 0, err
+	}
+	return len(users), nil
+}
+
+func QueryPassword(password string) (int, error) {
+	var users []*Users
+	sql := "Select * from users where user_pass = ?"
+	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+	err := o.Raw(sql, password).QueryRow(&users)
+	if err != nil {
+		beego.Error(err)
+		return 0, err
+	}
+	return len(users), nil
 }

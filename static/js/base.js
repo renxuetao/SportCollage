@@ -129,8 +129,10 @@
 			if(//排除一下内容不做异步操作
 				( target && target != '_self' ) ||
 				this.pathname.indexOf( '/wp-admin' ) !== -1 ||
-				this.pathname.indexOf( '/login_page.html' ) !== -1 ||
-				this.pathname.indexOf( '/SportCollage.html' ) !== -1 ||
+				this.pathname.indexOf( '/api/user/login' ) !== -1 ||
+				this.pathname.indexOf( '/api/user/regist' ) !== -1 ||
+				this.pathname.indexOf( '/api/user/forget' ) !== -1 ||
+				this.pathname.indexOf( '/' ) !== -1 ||
 				this.pathname.indexOf( '/feed' ) !== -1 ||
 				this.search.indexOf( '?feed=' ) !== -1 ||
 				this.search.indexOf( '&feed=' ) !== -1 ||

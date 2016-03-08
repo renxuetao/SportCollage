@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0027)http://localhost/wordpress/ -->
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -62,12 +61,12 @@
     <link rel="stylesheet" id="dashicons-css" href="../static/css/dashicons.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="SportCollage-style-css" href="../static/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" id="SportCollage-responsive-css" href="../static/css/responsive.css" type="text/css" media="all">
-    <!--[if lt IE 9]>
-    <link rel='stylesheet' id='SportCollage-ie-css' href='css/ie8.css?ver=4.4.2' type='text/css' media='all'/>
-    <![endif]-->
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5.js"></script>
-    <![endif]-->
+    <!--[if lt IE 9]-->
+    <link rel='stylesheet' id='SportCollage-ie-css' href='../static/css/ie8.css?ver=4.4.2' type='text/css' media='all'/>
+    <!--[endif]-->
+    <!--[if lt IE 9]-->
+    <script type="text/javascript" src="../static/js/html5.js"></script>
+    <!--[endif]-->
     <script type="text/javascript" src="../static/js/jquery.js"></script>
     <script type="text/javascript" src="../static/js/jquery-migrate.min.js"></script>
     <script type="text/javascript">
@@ -111,7 +110,7 @@
         };
         /* ]]> */
     </script>
-    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="../static/js/base.js"></script>
     
     <link rel="https://api.w.org/" href="localhost/wordpress/wp-json/">
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/wordpress/xmlrpc.php?rsd">
@@ -124,7 +123,7 @@
     <link rel="icon" href="../static/img/SportCollage-1-32x32.png" sizes="32x32">
     <link rel="icon" href="../static/img/SportCollage-1-192x192.png" sizes="192x192">
     <link rel="apple-touch-icon-precomposed" href="../static/img/SportCollage-1-180x180.png">
-    <meta name="msapplication-TileImage" content="img/SportCollage-1-270x270.png">
+    <meta name="msapplication-TileImage" content="../static/img/SportCollage-1-270x270.png">
 </head>
 <body class="home blog logged-in">
 <div id="wrapper">
@@ -187,7 +186,7 @@
                     <!--</a>-->
                 <!--</li>-->
                 <li class="opts__item">
-                    <a href="/api/user/login" class="SClogin">注册 &middot;登录</a>
+                    <a href="/api/user/login" method="get" class="SClogin">注册 &middot;登录</a>
                 </li>
             </ul>
             <form method="get" class="search-form" action="http://localhost/wordpress">
