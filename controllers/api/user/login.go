@@ -1,6 +1,7 @@
 package user
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/renxuetao/SportCollage/models"
 )
@@ -14,19 +15,22 @@ func (this *LoginControllers) Get() {
 }
 
 func (this *LoginControllers) Post() {
-	userName := this.Input().Get("user_login")
-	password := this.Input().Get("user_pass")
+	//err := models.InsertUser(1, "renxuetao", "123456", "renxuetao", "247304291@qq.com", "", 1457342131444, "", 0, "renxuetao")
+	//beego.Error(err)
+	beego.Debug(fmt.Print(this.Input()))
+	userName := this.Input().Get("log")
+	password := this.Input().Get("pwd")
 	beego.Debug(userName)
 	beego.Debug(password)
-	num, err := models.QueryUserName(userName)
-	beego.Debug("raw count %s", num)
+	//num, err := models.QueryOption()
+	num, err := models.QueryUser(userName, password)
+	beego.Debug("raw count", num)
+	beego.Error(err)
 	if err == nil && num > 0 {
-		count, err := models.QueryPassword(password)
-		if err == nil && count > 0 {
-
-		}
+		this.Redirect("/", 302)
 	} else {
-		beego.Debug("登录失败账号不存在")
+		this.Data["isUser"] = true
+		this.TplName = "login_page.html"
 	}
-	this.TplName = "login_page.html"
+
 }

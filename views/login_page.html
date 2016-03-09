@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--[if IE 8]-->
-<!-- <html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="zh-CN"> -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="zh-CN">
 <!--[endif]-->
 <!--[if !(IE 8) ]><!-->
-<!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN"> -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -13,7 +13,7 @@
     <link rel='stylesheet' id='dashicons-css' href='/static/css/dashicons.min.css?ver=4.4.2' type='text/css' media='all'/>
     <link rel='stylesheet' id='login-css' href='/static/css/login.min.css?ver=4.4.2' type='text/css' media='all'/>
     <!--[if lt IE 9]-->
-    <!-- <script type="text/javascript" src="/staticjs/html5.js"></script> -->
+    <script type="text/javascript" src="/staticjs/html5.js"></script>
     <!--[endif]-->
     <meta name='robots' content='noindex,follow'/>
     <link rel="shortcut icon" href="/static/img/SportCollage-1-32x32.png">
@@ -27,6 +27,18 @@
     <h1>
         <a href="/" title="SportCollage" tabindex="-1">SportCollage</a>
     </h1>
+    {{if .isUser}}
+        <p class="message login_p" id="message login_p">账号或密码不正确</p>
+    {{else}}
+        <script type="text/javascript">
+            function removeElement(){
+                var p_login = document.getElementById('login_p')
+                var login = document.getElementById('login')
+                login[0].removeChild(p_login[0]);
+            }
+            // setTimeout("removeElement()",0); //这样就行拉
+        </script>
+    {{end}}
     <form name="loginform" id="loginform" action="/api/user/login" method="post">
         <p>
             <label for="user_login">用户名<br/><input type="text" name="log" id="user_login" class="input" value="" size="20"/></label>

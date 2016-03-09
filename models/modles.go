@@ -1,7 +1,6 @@
 package models
 
 import (
-	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	//_ "github.com/go-sql-driver/mysql"
 )
@@ -14,12 +13,12 @@ type Commentmeta struct {
 }
 
 type Comments struct {
-	Comment_ID           int64 `orm:"pk";auto`
-	Comment_post_ID      int64
+	Comment_id           int64 `orm:"pk";auto`
+	Comment_post_id      int64
 	Comment_author       string
 	Comment_author_email string
 	Comment_author_url   string
-	Comment_author_IP    string
+	Comment_author_ip    string
 	Comment_date         uint64
 	Comment_date_gmt     uint64
 	Comment_content      string
@@ -61,7 +60,7 @@ type Postmeta struct {
 }
 
 type Posts struct {
-	ID                    int64 `orm:"pk";auto`
+	Id                    int64 `orm:"pk";auto`
 	Post_author           int64
 	Post_date             uint64
 	Post_date_gmt         uint64
@@ -123,7 +122,7 @@ type Usermeta struct {
 }
 
 type Users struct {
-	ID                  int64 `orm:"pk";auto`
+	Id                  int64 `orm:"pk";auto`
 	User_login          string
 	User_pass           string
 	User_nicename       string
@@ -140,42 +139,46 @@ func init() {
 	orm.RegisterModel(new(Commentmeta), new(Users), new(Usermeta), new(Terms), new(Termmeta), new(Term_taxonomy), new(Term_relationships), new(Posts), new(Postmeta), new(Options), new(Links), new(Comments))
 }
 
-// func QueryAritcleList() {
-// 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
-// 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-// 	var Commentmetas []*Commentmeta
-// 	num, err := o.QueryTable("Commentmeta").All(&Commentmetas)
-// 	fmt.Printf("Returned Rows Num: %s, %s", num, err)
-// }
-
-// var (
-// 	sql string
-// 	err error
-// 	num int
-// )
-
-func QueryUserName(userName string) (int, error) {
+func QueryUser(userName string, password string) (int64, error) {
 	var users []*Users
-	sql := "Select * from users where user_login = ?"
+	// sql := "select id, user_login, user_pass,user_nicename,user_email,user_url,user_registered,user_activation_key,user_status,display_name from users"
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	err := o.Raw(sql, userName).QueryRow(&users)
+	// err := o.Raw(sql).QueryRow(&users)
+	num, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
 	if err != nil {
-		beego.Error(err)
 		return 0, err
 	}
-	return len(users), nil
+	return num, nil
+	// return len(users), nil
 }
 
-func QueryPassword(password string) (int, error) {
-	var users []*Users
-	sql := "Select * from users where user_pass = ?"
+func QueryOption() (int, error) {
+	var options []*Options
+	sql := "select option_id, option_name, option_value,autoload from options"
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	err := o.Raw(sql, password).QueryRow(&users)
+	err := o.Raw(sql).QueryRow(&options)
+	// num, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
 	if err != nil {
-		beego.Error(err)
 		return 0, err
 	}
-	return len(users), nil
+	// return num, nil
+	return len(options), nil
+}
+
+func InsertUser(id int, user_login string, user_pass string, user_nicename string, user_email string, user_url string, user_registered int64, user_activation_key string, user_status int, display_name string) error {
+	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+	//事务
+	err := o.Begin()
+	sql := " insert into users (id, user_login, user_pass,user_nicename,user_email,user_url,user_registered,user_activation_key,user_status,display_name) values(?,?,?,?,?,?,?,?,?,?) "
+	_, err = o.Raw(sql, id, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name).Exec()
+	if err != nil {
+		o.Rollback()
+		return err
+	} else {
+		o.Commit()
+		return err
+	}
 }

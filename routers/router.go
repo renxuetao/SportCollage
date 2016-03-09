@@ -7,6 +7,7 @@ import (
 )
 
 func init() {
+	beego.SetStaticPath("/fonts", "fonts")
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/api/user/login", &user.LoginControllers{})
 	beego.Router("/api/user/regist", &user.RegistControllers{})
