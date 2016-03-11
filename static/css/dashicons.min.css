@@ -5,7 +5,9 @@
 
 @font-face {
     font-family: dashicons;
-    src: url(../fonts/dashicons.woff)format('woff'), url(../fonts/dashicons.ttf) format("truetype"), url(../fonts/dashicons.svg#dashicons) format("svg");
+    src: url(../fonts/dashicons.woff) format('woff'),
+		 url(../fonts/dashicons.ttf) format("truetype"),
+		 url(../fonts/dashicons.svg#dashicons) format("svg");
     font-weight: 400;
     font-style: normal
 }

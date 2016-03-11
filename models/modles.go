@@ -139,39 +139,32 @@ func init() {
 	orm.RegisterModel(new(Commentmeta), new(Users), new(Usermeta), new(Terms), new(Termmeta), new(Term_taxonomy), new(Term_relationships), new(Posts), new(Postmeta), new(Options), new(Links), new(Comments))
 }
 
-func QueryUser(userName string, password string) (int64, error) {
+func QueryUser(userName string, password string, rememberme int) (int64, error) {
 	var users []*Users
-	// sql := "select id, user_login, user_pass,user_nicename,user_email,user_url,user_registered,user_activation_key,user_status,display_name from users"
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	// err := o.Raw(sql).QueryRow(&users)
 	num, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
 	if err != nil {
 		return 0, err
 	}
 	return num, nil
-	// return len(users), nil
 }
 
-func QueryOption() (int, error) {
-	var options []*Options
-	sql := "select option_id, option_name, option_value,autoload from options"
+func UpdateUserStatus(userName string, password string, rememberme int) error {
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	err := o.Raw(sql).QueryRow(&options)
-	// num, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
+	sSql := "update users set user_status = ? where user_login = ?"
+	_, err := o.Raw(sSql, rememberme, userName).Exec()
 	if err != nil {
-		return 0, err
+		return err
 	}
-	// return num, nil
-	return len(options), nil
+	return nil
 }
 
 func InsertUser(id int, user_login string, user_pass string, user_nicename string, user_email string, user_url string, user_registered int64, user_activation_key string, user_status int, display_name string) error {
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
-	//事务
-	err := o.Begin()
+	err := o.Begin()   //开启事务
 	sql := " insert into users (id, user_login, user_pass,user_nicename,user_email,user_url,user_registered,user_activation_key,user_status,display_name) values(?,?,?,?,?,?,?,?,?,?) "
 	_, err = o.Raw(sql, id, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name).Exec()
 	if err != nil {
