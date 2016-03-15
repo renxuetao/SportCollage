@@ -176,16 +176,22 @@
                     </li>
                 </ul>
             </nav>
-            <ul class="header-regist-login">
+            <ul class="header-regist-login" id="login_bar">
                 <!--<li class="opts__item message has-unread">-->
                     <!--<a target="_blank" href="/tour">-->
                         <!--<span class="sr-only">消息</span>-->
                         <!--<span id="messageCount" class="fa fa-hand-peace-o"></span>-->
                     <!--</a>-->
                 <!--</li>-->
-                <li class="opts__item">
-                    <a href="/api/user/login" method="get" class="SClogin">注册 &middot;登录</a>
-                </li>
+                {{if .isLogin}}
+                    <li class="opts__item">
+                        <a href="/api/user/login" method="get" class="SClogin" id="SClogin">{{.userName}}</a>
+                    </li>
+                {{else}}
+                    <li class="opts__item">
+                        <a href="/api/user/login" method="get" class="SClogin">注册 &middot;登录</a>
+                    </li>
+                {{end}}
             </ul>
             <form method="get" class="search-form" action="http://localhost/wordpress">
                 <input class="search-text" name="s" autocomplete="off" placeholder="输入关键词搜索..." type="text" value="">

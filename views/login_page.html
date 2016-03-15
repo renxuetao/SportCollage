@@ -30,14 +30,14 @@
     {{if .isUser}}
         <p class="message login_p" id="message login_p">账号或密码不正确</p>
     {{else}}
-        <script type="text/javascript">
-            function removeElement(){
-                var p_login = document.getElementById('login_p')
-                var login = document.getElementById('login')
-                login[0].removeChild(p_login[0]);
+        <!--<script type="text/javascript">
+             function removeElement(){
+                 var p_login = document.getElementById('login_p')
+                 var login = document.getElementById('login')
+                 login[0].removeChild(p_login[0]);
             }
-            // setTimeout("removeElement()",0); //这样就行拉
-        </script>
+             setTimeout("removeElement()",0); //这样就行拉
+        </script>-->
     {{end}}
     <form name="loginform" id="loginform" action="/api/user/login" method="post">
         <p>

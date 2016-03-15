@@ -139,7 +139,7 @@ func init() {
 	orm.RegisterModel(new(Commentmeta), new(Users), new(Usermeta), new(Terms), new(Termmeta), new(Term_taxonomy), new(Term_relationships), new(Posts), new(Postmeta), new(Options), new(Links), new(Comments))
 }
 
-func QueryUser(userName string, password string, rememberme int) (int64, error) {
+func QueryUser(userName string, password string) (int64, error) {
 	var users []*Users
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
@@ -148,6 +148,17 @@ func QueryUser(userName string, password string, rememberme int) (int64, error) 
 		return 0, err
 	}
 	return num, nil
+}
+
+func QueryUserNickName(userName string, password string) (string, error) {
+	var users []*Users
+	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+	_, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
+	if err != nil {
+		return "", err
+	}
+	return users[0].User_nicename, nil
 }
 
 func UpdateUserStatus(userName string, password string, rememberme int) error {
