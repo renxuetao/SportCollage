@@ -2461,3 +2461,14 @@ select:hover {
     display: none !important;
     visibility: hidden !important
 }
+
+.dropdown-menu-right {
+    left: auto;
+    right: 0
+}
+
+@media (max-width: 767px) {
+    .login_bar {
+        display: none !important
+    }
+}

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	//_ "github.com/go-sql-driver/mysql"
 )
@@ -157,8 +158,15 @@ func QueryUserNickName(userName string, password string) (string, error) {
 	_, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
 	if err != nil {
 		return "", err
+	} else {
+		beego.Debug("len(users):", len(users))
+		if len(users) > 0 {
+			beego.Debug("users[0].User_nicename:", users[0].User_nicename)
+			return users[0].User_nicename, nil
+		} else {
+			return "", nil
+		}
 	}
-	return users[0].User_nicename, nil
 }
 
 func UpdateUserStatus(userName string, password string, rememberme int) error {

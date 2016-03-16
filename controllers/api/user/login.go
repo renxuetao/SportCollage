@@ -17,13 +17,9 @@ func (this *LoginControllers) Get() {
 }
 
 func (this *LoginControllers) Post() {
-	beego.Debug(fmt.Print(this.Input()))
 	userName := this.Input().Get("log")
 	password := this.Input().Get("pwd")
 	rememberme := this.Input().Get("rem")
-	// beego.Debug(userName)
-	// beego.Debug(password)
-	// beego.Debug(rememberme)
 	//判断是否选择了自动登录
 	var status int
 	if strings.EqualFold(rememberme, "forever") {
@@ -31,8 +27,7 @@ func (this *LoginControllers) Post() {
 	} else {
 		status = 0
 	}
-	num, err := models.QueryUser(userName, password)
-	beego.Debug("query user raw count", num)
+	num, err := models.QueryUser(userName, utils.GetMD5Str(password))
 	beego.Error(err)
 	//判断是否查询到用户
 	if err == nil && num > 0 {
@@ -43,11 +38,17 @@ func (this *LoginControllers) Post() {
 		// } else {
 		// 	beego.Error(err)
 		// }
-		beego.Debug("status:", status)
-		this.SetSession("log", userName)
-		this.SetSession("pwd", utils.GetMD5Str(password))
-		this.SetSession("rem", utils.GetIntToStr(status))
-		this.SetSession("loginstate", "yes")
+
+		// this.SetSession("log", userName)
+		// this.SetSession("pwd", utils.GetMD5Str(password))
+		// this.SetSession("rem", utils.GetIntToStr(status))
+		// this.SetSession("loginstate", "yes")
+
+		this.Ctx.SetCookie("log", userName)
+		this.Ctx.SetCookie("pwd", utils.GetMD5Str(password))
+		this.Ctx.SetCookie("rem", utils.GetIntToStr(status))
+		this.Ctx.SetCookie("loginstate", "yes")
+
 		this.Redirect("/", 302)
 	} else {
 		this.Data["isUser"] = true
