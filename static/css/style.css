@@ -625,7 +625,7 @@ select:hover {
     height: 38px;
     line-height: 38px;
     padding: 6px 0;
-    margin-right: 100px;
+    margin-right: 150px;
 }
 
 #header .search-form:after {
@@ -2457,7 +2457,7 @@ select:hover {
     }
 }
 
-.hidden {
+/*.hidden {
     display: none !important;
     visibility: hidden !important
 }
@@ -2465,10 +2465,29 @@ select:hover {
 .dropdown-menu-right {
     left: auto;
     right: 0
-}
+}*/
 
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
     .login_bar {
         display: none !important
     }
+}
+
+.user-avatar {
+    margin-left: 10px;
+    width: 30px;
+    border-radius: 50%;
+    vertical-align: bottom;
+    background-size: contain
+}*/
+
+.message-img {
+    max-width: 28px;
+    min-width: 16px;
+    height: 16px;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-top: 18px;
+    margin-right: 5px;
 }

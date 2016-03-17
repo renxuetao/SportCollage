@@ -1,7 +1,6 @@
 package user
 
 import (
-	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/renxuetao/SportCollage/models"
 	"github.com/renxuetao/SportCollage/utils"

@@ -58,9 +58,11 @@
             padding: 0 !important;
         }
     </style>
+    <link rel="stylesheet" id="admin-bar-css" href="/static/css/admin-bar.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="dashicons-css" href="/static/css/dashicons.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="SportCollage-style-css" href="/static/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" id="SportCollage-responsive-css" href="/static/css/responsive.css" type="text/css" media="all">
+    <link rel="stylesheet" id="SportCollage-dropzone-css" href="/static/css/dropzone.css" type="text/css" media="all">
     <!--[if lt IE 9]-->
     <link rel='stylesheet' id='SportCollage-ie-css' href='/static/css/ie8.css?ver=4.4.2' type='text/css' media='all'/>
     <!--[endif]-->
@@ -177,40 +179,71 @@
                 </ul>
             </nav>
             <ul class="header-regist-login" id="login_bar">
-                <!--<li class="opts__item message has-unread">-->
-                    <!--<a target="_blank" href="/tour">-->
-                        <!--<span class="sr-only">消息</span>-->
-                        <!--<span id="messageCount" class="fa fa-hand-peace-o"></span>-->
-                    <!--</a>-->
-                <!--</li>-->
                 {{if .isLogin}}
-                    <li id="menu-item-35" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-35">
-                        <a href="/" method="get" class="SClogin" id="SClogin">{{.nickName}}</a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="/u/renxuetao">我的主页</a></li>
-                            <li><a href="/u/renxuetao/profile">我的档案</a></li>
-                            <li><a href="/user/note">我的笔记</a></li>
-                            <li><a href="/user/draft">草稿箱</a></li>
-                            <li><a href="/user/bookmarks">收藏夹</a></li>
-                            <li><a href="/user/settings">账号设置</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/api/user/logout?_=96afe86d01ed811d92404ca5f257c742">退出</a></li>
-                            <li><a class="js__action--complain" href="javascript:void(0);">我要申诉</a></li>
-                            <li><a href="/faq">帮助中心</a></li>
-                            <li><a href="https://board.segmentfault.com/">建议反馈</a></li>
-                            <script type="text/template" id="js__action--complain-tpl">
-                                <form class="complain__form" method="post" action="/api/appeals/add">
-                                    <div class="form-group">
-                                        <label>理由</label>
-                                        <textarea name="description" class="form-control" rows="3"></textarea>
+                    <div id="wpadminbar" class="nojq nojs">
+                        <div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="工具栏" tabindex="0">
+                            <ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+                                <li id="wp-admin-bar-my-account" class="menupop with-avatar">
+                                    <!-- 您好，{{.nickName}} alt='Gravatar 头像' srcset='/static/img/user-64.png' -->
+                                    <a class="ab-item"  aria-haspopup="true" href="/">
+                                        <img  src='/static/img/user-64.png' class='avatar avatar-26 photo' height='26' width='26' />
+                                    </a>
+                                    <div class="ab-sub-wrapper">
+                                        <ul id="wp-admin-bar-user-actions" class="ab-submenu">
+                                            <li id="wp-admin-bar-user-info">
+                                                <a class="ab-item" tabindex="-1" href="">
+                                                    <img alt='Gravatar 头像' src='/static/img/user-64.png' class='avatar avatar-64 photo' height='64' width='64' />
+                                                </a>
+                                            </li>
+                                            <li id="wp-admin-bar-homepage">
+                                                <a class="ab-item"  href="">我的主页</a>
+                                            </li>
+                                            <li id="wp-admin-bar-edit-profile">
+                                                <a class="ab-item"  href="">我的资料</a>
+                                            </li>
+                                            <li id="wp-admin-bar-logout">
+                                                <a class="ab-item"  href="/">退出登录</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </form>
-                            </script>
-                        </ul>
-                    </li>
+                                </li>
+                                <li id="wp-admin-bar-my-account" class="menupop with-avatar">
+                                    <a class="ab-item"  aria-haspopup="true" href="/">
+                                        <img  src='/static/img/message_bg.png' class='avatar avatar-26 photo' height='26' width='26' />
+                                    </a>
+                                </li>
+                                <li id="wp-admin-bar-my-account" class="menupop with-avatar">
+                                    <a class="ab-item"  aria-haspopup="true" href="/">
+                                        <span class="sr-only" style="font-size: 16px;">撰写</span>
+                                        <!-- color: #999999 -->
+                                    </a>
+                                    <div class="ab-sub-wrapper">
+                                        <ul id="wp-admin-bar-user-actions" class="ab-submenu">
+                                            <li id="wp-admin-bar-homepage">
+                                                <a class="ab-item"  href="">我的主页</a>
+                                            </li>
+                                            <li id="wp-admin-bar-edit-profile">
+                                                <a class="ab-item"  href="">我的资料</a>
+                                            </li>
+                                            <li id="wp-admin-bar-logout">
+                                                <a class="ab-item"  href="/">退出登录</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 {{else}}
+                    <li class="opts__item message has-unread">
+                        <a target="_blank" href="/tour" style="font-size: 12px">
+                            <img class="message-img" id="message-img" src="/static/img/help.png">
+                            <!-- <span class="sr-only">消息</span> -->
+                            <!-- <span id="messageCount" class="fa fa-hand-peace-o"></span> -->
+                        </a>
+                    </li>
                     <li class="opts__item">
-                        <a href="/api/user/login" method="get" class="SClogin">注册 &middot;登录</a>
+                        <a href="/api/user/login" method="get" class="SClogin" style="font-size: 12px">注册 &middot;登录</a>
                     </li>
                 {{end}}
             </ul>
