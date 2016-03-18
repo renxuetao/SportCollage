@@ -169,11 +169,11 @@ func QueryUserNickName(userName string, password string) (string, error) {
 	}
 }
 
-func UpdateUserStatus(userName string, password string, rememberme int) error {
+func UpdateUserStatus(userName string, password string, loginState int) error {
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
 	sSql := "update users set user_status = ? where user_login = ?"
-	_, err := o.Raw(sSql, rememberme, userName).Exec()
+	_, err := o.Raw(sSql, loginState, userName).Exec()
 	if err != nil {
 		return err
 	}

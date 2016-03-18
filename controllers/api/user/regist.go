@@ -13,6 +13,5 @@ func (this *RegistControllers) Get() {
 }
 
 func (this *RegistControllers) Post() {
-	// beego.Debug(fmt.Sprint(this.Input()))
 	this.TplName = "login_page.html"
 }

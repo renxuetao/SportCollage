@@ -31,12 +31,12 @@ func (this *LoginControllers) Post() {
 	//判断是否查询到用户
 	if err == nil && num > 0 {
 		//如果选择自动登录更新数据库登录状态
-		// err := models.UpdateUserStatus(userName, password, status)
-		// if err == nil {
-		// 	//beego.Debug("update user raw count", num)
-		// } else {
-		// 	beego.Error(err)
-		// }
+		err := models.UpdateUserStatus(userName, password, 1)
+		if err == nil {
+			beego.Debug("update user raw count", num)
+		} else {
+			beego.Error(err)
+		}
 
 		// this.SetSession("log", userName)
 		// this.SetSession("pwd", utils.GetMD5Str(password))

@@ -4,6 +4,7 @@ import (
 	// "fmt"
 	"github.com/astaxie/beego"
 	"github.com/renxuetao/SportCollage/models"
+	"github.com/renxuetao/SportCollage/utils"
 	"strings"
 )
 
@@ -12,11 +13,23 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	// userName := fmt.Sprintf("%v", c.GetSession("log"))
-	// password := fmt.Sprintf("f%v", c.GetSession("pwd"))
-	// rememberme := fmt.Sprintf("%v", c.GetSession("rem"))
-	// loginstate := fmt.Sprintf("%v", c.GetSession("loginstate"))
-
+	// 这里是登出处理
+	logout := c.Input().Get("logout")
+	if strings.EqualFold(logout, "1") {
+		userName := c.Ctx.Input.Cookie("log")
+		password := c.Ctx.Input.Cookie("pwd")
+		err := models.UpdateUserStatus(userName, password, 1)
+		if err == nil {
+			beego.Debug("update user raw count", num)
+			c.Ctx.SetCookie("rem", utils.GetIntToStr(0))
+			c.Ctx.SetCookie("loginstate", "no")
+		} else {
+			beego.Error(err)
+		}
+		c.TplName = "SportCollage.html"
+		return
+	}
+	// 这里是登录处理，登录后判断登录状态，或者第一次打开网站是后判断当前是否自动登录
 	userName := c.Ctx.Input.Cookie("log")
 	password := c.Ctx.Input.Cookie("pwd")
 	rememberme := c.Ctx.Input.Cookie("rem")
@@ -43,7 +56,8 @@ func (c *MainController) Get() {
 				beego.Error(err)
 				c.Data["isLogin"] = true
 				c.Data["nickName"] = nickName
-				//c.Ctx.SetCookie("loginstate", "no")
+			} else {
+				c.Data["isLogin"] = false
 			}
 		}
 	} else {

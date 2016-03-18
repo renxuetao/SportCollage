@@ -202,7 +202,7 @@
                                                 <a class="ab-item"  href="">我的资料</a>
                                             </li>
                                             <li id="wp-admin-bar-logout">
-                                                <a class="ab-item"  href="/">退出登录</a>
+                                                <a class="ab-item"  href="/?logout=1" method="post">退出登录</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -214,10 +214,10 @@
                                 </li>
                                 <li id="wp-admin-bar-my-account" class="menupop with-avatar">
                                     <a class="ab-item"  aria-haspopup="true" href="/">
-                                        <span class="sr-only" style="font-size: 16px;">撰写</span>
+                                        <span class="sr-only" style="font-size: 14px;">撰写</span>
                                         <!-- color: #999999 -->
                                     </a>
-                                    <div class="ab-sub-wrapper">
+                                    <!-- <div class="ab-sub-wrapper">
                                         <ul id="wp-admin-bar-user-actions" class="ab-submenu">
                                             <li id="wp-admin-bar-homepage">
                                                 <a class="ab-item"  href="">我的主页</a>
@@ -229,22 +229,31 @@
                                                 <a class="ab-item"  href="/">退出登录</a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </li>
                             </ul>
                         </div>
                     </div>
                 {{else}}
-                    <li class="opts__item message has-unread">
-                        <a target="_blank" href="/tour" style="font-size: 12px">
-                            <img class="message-img" id="message-img" src="/static/img/help.png">
-                            <!-- <span class="sr-only">消息</span> -->
-                            <!-- <span id="messageCount" class="fa fa-hand-peace-o"></span> -->
-                        </a>
-                    </li>
-                    <li class="opts__item">
-                        <a href="/api/user/login" method="get" class="SClogin" style="font-size: 12px">注册 &middot;登录</a>
-                    </li>
+                    <div id="wpadminbar" class="nojq nojs">
+                        <div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="工具栏" tabindex="0">
+                            <ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+                                <li id="wp-admin-bar-my-account" class="menupop with-avatar">
+                                    <a class="ab-item"  aria-haspopup="true" href="/api/user/login">
+                                        <span class="sr-only" style="font-size: 14px;">注册&middot;登录</span>
+                                    </a>
+                                <!-- <li class="opts__item">
+                                    <a href="/api/user/login" method="get" class="SClogin" style="font-size: 12px">注册 &middot;登录</a>
+                                </li> -->
+                                </li>
+                                <li id="wp-admin-bar-my-account" class="menupop with-avatar">
+                                    <a class="ab-item"  aria-haspopup="true" href="/">
+                                        <img  src='/static/img/help.png' class='avatar avatar-26 photo' height='26' width='26' />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 {{end}}
             </ul>
             <form method="get" class="search-form" action="http://localhost/wordpress">
