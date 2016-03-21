@@ -20,7 +20,7 @@ func (c *MainController) Get() {
 		password := c.Ctx.Input.Cookie("pwd")
 		err := models.UpdateUserStatus(userName, password, 1)
 		if err == nil {
-			beego.Debug("update user raw count", num)
+			// beego.Debug("update user raw count", num)
 			c.Ctx.SetCookie("rem", utils.GetIntToStr(0))
 			c.Ctx.SetCookie("loginstate", "no")
 		} else {

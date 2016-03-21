@@ -140,11 +140,44 @@ func init() {
 	orm.RegisterModel(new(Commentmeta), new(Users), new(Usermeta), new(Terms), new(Termmeta), new(Term_taxonomy), new(Term_relationships), new(Posts), new(Postmeta), new(Options), new(Links), new(Comments))
 }
 
+func QueryAllUser() (int64, error) {
+	var users []*Users
+	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+	num, err := o.QueryTable("users").All(&users)
+	if err != nil {
+		return 0, err
+	}
+	return num, nil
+}
+
 func QueryUser(userName string, password string) (int64, error) {
 	var users []*Users
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
 	num, err := o.QueryTable("users").Filter("user_login", userName).Filter("user_pass", password).All(&users)
+	if err != nil {
+		return 0, err
+	}
+	return num, nil
+}
+
+func QueryUserName(userName string) (int64, error) {
+	var users []*Users
+	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+	num, err := o.QueryTable("users").Filter("user_login", userName).All(&users)
+	if err != nil {
+		return 0, err
+	}
+	return num, nil
+}
+
+func QueryUserEmail(userEmail string) (int64, error) {
+	var users []*Users
+	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
+	o.Using("default") // 默认使用 default，你可以指定为其他数据库
+	num, err := o.QueryTable("users").Filter("user_email", userEmail).All(&users)
 	if err != nil {
 		return 0, err
 	}
@@ -180,7 +213,7 @@ func UpdateUserStatus(userName string, password string, loginState int) error {
 	return nil
 }
 
-func InsertUser(id int, user_login string, user_pass string, user_nicename string, user_email string, user_url string, user_registered int64, user_activation_key string, user_status int, display_name string) error {
+func InsertUser(id int64, user_login string, user_pass string, user_nicename string, user_email string, user_url string, user_registered int64, user_activation_key string, user_status int, display_name string) error {
 	o := orm.NewOrm()  // 创建一个 Ormer NewOrm 的同时会执行 orm.BootStrap (整个 app 只执行一次)，用以验证模型之间的定义并缓存。
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
 	err := o.Begin()   //开启事务

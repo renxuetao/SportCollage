@@ -27,7 +27,11 @@
     <h1>
         <a href="/" title="SportCollage" tabindex="-1">SportCollage</a>
     </h1>
-    <p class="message register">在这个站点注册</p>
+    {{if .registState}}
+        <p class="message register">{{.registValue}}</p>
+    {{else}}
+        <p class="message register">在这个站点注册</p>
+    {{end}}
     <form name="registerform" id="registerform" action="/api/user/regist" method="post" novalidate="novalidate">
         <p>
             <label for="user_login">用户名<br/>
@@ -36,7 +40,7 @@
         </p>
         <p>
             <label for="user_password">密码<br/>
-                <input type="email" name="user_email" id="user_email" class="input" value="" size="25"/>
+                <input type="password" name="user_password" id="user_password" class="input" value="" size="25"/>
             </label>
         </p>
         <p>
