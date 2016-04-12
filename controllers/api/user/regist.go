@@ -34,7 +34,7 @@ func (this *RegistControllers) Post() {
 				num, err := models.QueryAllUser()
 				beego.Error(err)
 				beego.Debug(num)
-				err = models.InsertUser((num + 1), userName, utils.GetMD5Str(userPassword), userName, userEmail, "", 0, "", 0, "")
+				err = models.InsertUser((num + 1), userName, utils.GetMD5Str(userPassword), userName, userEmail, "", utils.GetModifyTime(), "", 0, userName)
 				beego.Error(err)
 				if err != nil {
 					this.Data["registState"] = true
